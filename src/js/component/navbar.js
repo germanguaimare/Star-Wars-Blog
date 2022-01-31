@@ -18,7 +18,7 @@ export const Navbar = () => {
         <span className="navbar-brand mb-0 h1">Star Wars</span>
       </Link>
       <div className="">
-        <Link to="/characters">
+        <Link to="/people">
           <button className="btn btn-primary categories">Characters</button>
         </Link>
         <Link to="/planets">

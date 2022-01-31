@@ -11,8 +11,13 @@ export const Planets = () => {
 		<div className="container-full px-5">
 			<h1>Planets View</h1>
 			<div className="d-flex flex-wrap justify-content-start mb-4">
-			{planets.map((key,index) => <ItemCard key={index} name={planets[index].name}
-			uid={planets[index].uid}></ItemCard>)}
+			{planets.map((key,index) => 
+			<ItemCard 
+			key={index} 
+			name={planets[index].name}
+			uid={planets[index].uid}
+			type="planets"
+			></ItemCard>)}
 			</div>
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>

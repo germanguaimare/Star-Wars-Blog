@@ -1,9 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      vehicles: [],
-      planets: [],
       baseUrl: "https://www.swapi.tech/api",
+      activeItem: []
     },
     actions: {
       getCharacters: () => {
@@ -37,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((error) => console.log("error", error));
       },
-	  getVehicles: () => {
+      getVehicles: () => {
         const store = getStore();
         var requestOptions = {
           method: "GET",
@@ -51,12 +50,24 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((error) => console.log("error", error));
       },
-	  getData: () => {
-		  const actions = getActions();
-		  actions.getCharacters();
-		  actions.getPlanets();
-		  actions.getVehicles()
-	  }
+      getData: () => {
+        const actions = getActions();
+        actions.getCharacters();
+        actions.getPlanets();
+        actions.getVehicles();
+      },
+      getDetails: (fetchRoute) => {
+        const store = getStore()
+        var requestOptions = {
+          method: 'GET',
+          redirect: 'follow'
+        };
+        
+        fetch(store.baseUrl + fetchRoute, requestOptions)
+          .then(response => response.json())
+          .then(result => {sessionStorage.setItem("activeItem", JSON.stringify(result.result))})
+          .catch(error => console.log('error', error));
+      },
     },
   };
 };

@@ -4,17 +4,17 @@ import { HomeCard } from "../component/homeCard";
 import { Context } from "../store/appContext";
 
 export const Home = () => {
-	const { store, actions } = useContext(Context)
-	useEffect(() => {
-actions.getData()
-		,[]})
+  const { store, actions } = useContext(Context);
+  useEffect(() => {
+    actions.getData(), [];
+  });
   return (
     <div className="text-center mt-2 mb-2">
       <h1>Star Wars Enciclopedia</h1>
       <div className="d-flex justify-content-around mt-2 mb-5">
         <HomeCard
           title="Characters"
-          link="/characters"
+          link="/people"
           action="Explore Characters"
         ></HomeCard>
         <HomeCard

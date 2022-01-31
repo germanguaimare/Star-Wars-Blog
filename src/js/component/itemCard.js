@@ -14,7 +14,7 @@ export const ItemCard = (props) => {
       />
       <CardBody>
         <CardTitle tag="h5">{props.name}</CardTitle>
-        <Link to={`/detail/${props.uid}`}>
+        <Link to={`/${props.type}/${props.uid}`}>
         <Button>Details</Button>
         </Link>
       </CardBody>

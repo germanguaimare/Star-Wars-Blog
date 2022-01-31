@@ -11,8 +11,13 @@ export const Vehicles = () => {
 		<div className="container-full px-5">
 			<h1>Vehicles View</h1>
 			<div className="d-flex flex-wrap justify-content-start mb-4">
-			{vehicles.map((key,index) => <ItemCard key={index} name={vehicles[index].name}
-			uid={vehicles[index].uid}></ItemCard>)}
+			{vehicles.map((key,index) => 
+			<ItemCard 
+			key={index} 
+			name={vehicles[index].name}
+			uid={vehicles[index].uid}
+			type="vehicles"
+			></ItemCard>)}
 			</div>
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>

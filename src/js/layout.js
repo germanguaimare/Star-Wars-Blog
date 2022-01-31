@@ -27,7 +27,7 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/characters">
+						<Route exact path="/people">
 							<Characters />
 						</Route>
 						<Route exact path="/planets">
@@ -36,14 +36,19 @@ const Layout = () => {
 						<Route exact path="/vehicles">
 							<Vehicles />
 						</Route>
-						<Route exact path="/detail/:uid">
+						<Route exact path="/people/:uid">
+							<Detail />
+						</Route>
+						<Route exact path="/planets/:uid">
+							<Detail />
+						</Route>
+						<Route exact path="/vehicles/:uid">
 							<Detail />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
 					</Switch>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
