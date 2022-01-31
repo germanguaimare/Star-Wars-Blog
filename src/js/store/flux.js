@@ -1,45 +1,64 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	return {
-		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
-		},
-		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+  return {
+    store: {
+      vehicles: [],
+      planets: [],
+      baseUrl: "https://www.swapi.tech/api",
+    },
+    actions: {
+      getCharacters: () => {
+        const store = getStore();
+        var requestOptions = {
+          method: "GET",
+          redirect: "follow",
+        };
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+        fetch(store.baseUrl + "/people/", requestOptions)
+          .then((response) => response.json())
+          .then((result) => {
+            sessionStorage.setItem(
+              "characters",
+              JSON.stringify(result.results)
+            );
+          })
+          .catch((error) => console.log("error", error));
+      },
+      getPlanets: () => {
+        const store = getStore();
+        var requestOptions = {
+          method: "GET",
+          redirect: "follow",
+        };
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
-		}
-	};
+        fetch(store.baseUrl + "/planets/", requestOptions)
+          .then((response) => response.json())
+          .then((result) => {
+            sessionStorage.setItem("planets", JSON.stringify(result.results));
+          })
+          .catch((error) => console.log("error", error));
+      },
+	  getVehicles: () => {
+        const store = getStore();
+        var requestOptions = {
+          method: "GET",
+          redirect: "follow",
+        };
+
+        fetch(store.baseUrl + "/vehicles/", requestOptions)
+          .then((response) => response.json())
+          .then((result) => {
+            sessionStorage.setItem("vehicles", JSON.stringify(result.results));
+          })
+          .catch((error) => console.log("error", error));
+      },
+	  getData: () => {
+		  const actions = getActions();
+		  actions.getCharacters();
+		  actions.getPlanets();
+		  actions.getVehicles()
+	  }
+    },
+  };
 };
 
 export default getState;
