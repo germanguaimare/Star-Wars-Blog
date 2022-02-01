@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import React, { useState, useEffect } from "react";
+import { Context } from "../store/appContext";
 import {
   Card,
   CardImg,
@@ -13,7 +13,8 @@ import {
 import "../../styles/detailCard.css";
 
 export const DetailCard = (props) => {
-  useEffect(()=>{})
+  const { store, actions } = useContext(Context);
+  useEffect(()=>{console.log(store.activeItem)})
   switch (props.type) {
     case "people":
       return (
@@ -26,7 +27,7 @@ export const DetailCard = (props) => {
               width="100%"
             />
             <CardBody>
-              <CardTitle tag="h5">{props.activeItem.properties.name}</CardTitle>
+              <CardTitle tag="h5">{activeItem.properties.name}</CardTitle>
               <CardSubtitle className="mb-2 text-muted" tag="h6">
                 A character from Star Wars
               </CardSubtitle>
@@ -70,7 +71,7 @@ export const DetailCard = (props) => {
               width="100%"
             />
             <CardBody>
-              <CardTitle tag="h5">{props.activeItem.properties.name}</CardTitle>
+              <CardTitle tag="h5">{activeItem.properties.name}</CardTitle>
               <CardSubtitle className="mb-2 text-muted" tag="h6">
               A planet from Star Wars
               </CardSubtitle>
@@ -78,35 +79,35 @@ export const DetailCard = (props) => {
                 <tbody>
                   <tr>
                     <th scope="row">Climate</th>
-                    <td>{props.activeItem.properties.climate}</td>
+                    <td>{activeItem.properties.climate}</td>
                   </tr>
                   <tr>
                     <th scope="row">Diameter</th>
-                    <td>{props.activeItem.properties.diameter}</td>
+                    <td>{activeItem.properties.diameter}</td>
                   </tr>
                   <tr>
                     <th scope="row">Gravity</th>
-                    <td>{props.activeItem.properties.gravity}</td>
+                    <td>{activeItem.properties.gravity}</td>
                   </tr>
                   <tr>
                     <th scope="row">Orbital Period</th>
-                    <td>{props.activeItem.properties.orbital_period}</td>
+                    <td>{activeItem.properties.orbital_period}</td>
                   </tr>
                   <tr>
                     <th scope="row">Population</th>
-                    <td>{props.activeItem.properties.population}</td>
+                    <td>{activeItem.properties.population}</td>
                   </tr>
                   <tr>
                     <th scope="row">Rotation Perdio</th>
-                    <td>{props.activeItem.properties.rotation_period}</td>
+                    <td>{activeItem.properties.rotation_period}</td>
                   </tr>
                   <tr>
                     <th scope="row">Surface Water</th>
-                    <td>{props.activeItem.properties.surface_water + " %"}</td>
+                    <td>{activeItem.properties.surface_water + " %"}</td>
                   </tr>
                   <tr>
                     <th scope="row">Terrain Types</th>
-                    <td>{props.activeItem.properties.terrain}</td>
+                    <td>{activeItem.properties.terrain}</td>
                   </tr>
                 </tbody>
               </Table>

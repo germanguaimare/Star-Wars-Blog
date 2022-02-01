@@ -65,7 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         
         fetch(store.baseUrl + fetchRoute, requestOptions)
           .then(response => response.json())
-          .then(result => {sessionStorage.setItem("activeItem", JSON.stringify(result.result))})
+          .then(result => {setStore({activeItem: result.result})})
           .catch(error => console.log('error', error));
       },
     },

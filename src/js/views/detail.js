@@ -6,14 +6,13 @@ import { Context } from "../store/appContext";
 export const Detail = () => {
   const fetchRoute = window.location.pathname;
   const { store, actions } = useContext(Context);
-  let activeItem = (JSON.parse(sessionStorage.getItem("activeItem")))
   useEffect(() => {
     actions.getDetails(fetchRoute);
   });
   if (fetchRoute.includes("people")) {
     return (
       <div>
-        <DetailCard type="people" activeItem={activeItem}></DetailCard>
+        <DetailCard type="people"></DetailCard>
       </div>
     );
   }
