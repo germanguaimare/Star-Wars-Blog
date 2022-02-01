@@ -17,6 +17,7 @@ export const Vehicles = () => {
 			name={vehicles[index].name}
 			uid={vehicles[index].uid}
 			type="vehicles"
+			index={index}
 			></ItemCard>)}
 			</div>
 			<Link to="/">

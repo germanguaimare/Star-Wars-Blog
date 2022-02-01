@@ -1,4 +1,6 @@
-import React, {useState} from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
+
 import { Link } from "react-router-dom";
 import {
   Dropdown,
@@ -8,9 +10,11 @@ import {
 } from "reactstrap";
 
 export const Navbar = () => {
-
-	const [show, setShow] = useState(false);
-	const handleToggle = () => {setShow(!show)};
+  const { store, actions } = useContext(Context);
+  const [show, setShow] = useState(false);
+  const handleToggle = () => {
+    setShow(!show);
+  };
 
   return (
     <nav className="navbar navbar-light bg-light px-5 mb-3 d-flex justify-content-between">
@@ -33,9 +37,14 @@ export const Navbar = () => {
           <Dropdown id="dropdown" isOpen={show} toggle={() => handleToggle()}>
             <DropdownToggle caret>Favorites</DropdownToggle>
             <DropdownMenu>
-              <DropdownItem>Foo Action</DropdownItem>
-              <DropdownItem>Bar Action</DropdownItem>
-              <DropdownItem>Quo Action</DropdownItem>
+              {
+              store.favorites[0] ? store.favorites.map((key,index) =>
+              <DropdownItem
+                key={index}
+                index={index}
+              ><Link to={`/${store.favorites[index].type}/${store.favorites[index].uid}`}>{store.favorites[index].name}</Link>
+              <i onClick ={() => {actions.deleteFavorite(index)}}className="fas fa-backspace"></i></DropdownItem>
+              ) : <DropdownItem>¡Go add your favorites!</DropdownItem>}
             </DropdownMenu>
           </Dropdown>
         </div>

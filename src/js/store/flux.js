@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      favorites: [],
       baseUrl: "https://www.swapi.tech/api",
       activeItem: {
         properties: {
@@ -17,10 +18,17 @@ const getState = ({ getStore, getActions, setStore }) => {
           population: "Receiving info",
           rotation_period: "Receiving info",
           surface_water: "Receiving info",
-          terrain: "Receiving info"
-        },
-        favorites: [],
-      },
+          terrain: "Receiving info",
+          cargo_capacity: "Receiving info",
+          consumables: "Receiving info",
+          cost_in_credits: "Receiving info",
+          crew: "Receiving info",
+          manufacturer: "Receiving info",
+          max_atmosphering_speed: "Receiving info",
+          model: "Receiving info",
+          passengers: "Receiving info"
+        }
+      }
     },
     actions: {
       getCharacters: () => {
@@ -88,6 +96,36 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((error) => console.log("error", error));
       },
+      addFavorite: (index, type) => {
+        const store = getStore();
+        const characters = JSON.parse(sessionStorage.getItem('characters'))
+        const planets = JSON.parse(sessionStorage.getItem('planets'))
+        const vehicles = JSON.parse(sessionStorage.getItem('vehicles'))
+        console.log(index, type)
+        if (type == "people") {
+            let urlType = {type: "people"}
+            let newFavorite = characters[index]
+            let obj = Object.assign(urlType, newFavorite)
+            setStore(store.favorites.push(obj))
+        }
+        if (type == "planets") {
+          let urlType = {type: "planets"}
+          let newFavorite = planets[index]
+          let obj = Object.assign(urlType, newFavorite)
+          setStore(store.favorites.push(obj))
+        }
+        if (type == "vehicles") {
+          let urlType = {type: "planets"}
+          let newFavorite = vehicles[index]
+          let obj = Object.assign(urlType, newFavorite)
+          setStore(store.favorites.push(obj))
+        }
+      },
+      deleteFavorite: (index) => {
+        const store = getStore();
+        store.favorites.splice(index,1);
+        console.log(store.favorites)
+      }
     },
   };
 };

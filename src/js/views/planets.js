@@ -17,6 +17,7 @@ export const Planets = () => {
 			name={planets[index].name}
 			uid={planets[index].uid}
 			type="planets"
+			index={index}
 			></ItemCard>)}
 			</div>
 			<Link to="/">

@@ -20,14 +20,17 @@ export const DetailCard = (props) => {
     case "people":
       return (
         <div className="container">
-          <Card className="detailCard">
+          <Card className="detailCard row d-flex">
+            <div className="col-7">
             <CardImg
+              
               alt="Card image cap"
               src="https://picsum.photos/318/180"
               top
               width="100%"
             />
-            <CardBody>
+            </div>
+            <CardBody className="col-5">
               <CardTitle tag="h5">{activeItem.properties.name}</CardTitle>
               <CardSubtitle className="mb-2 text-muted" tag="h6">
                 A character from Star Wars
@@ -56,7 +59,6 @@ export const DetailCard = (props) => {
                   </tr>
                 </tbody>
               </Table>
-              <Button>Add to Favorites</Button>
             </CardBody>
           </Card>
         </div>
@@ -64,14 +66,16 @@ export const DetailCard = (props) => {
     case "planets":
       return (
         <div className="container">
-          <Card className="detailCard">
+          <Card className="detailCard row d-flex">
+            <div className="col-7">
             <CardImg
               alt="Card image cap"
               src="https://picsum.photos/318/180"
               top
               width="100%"
             />
-            <CardBody>
+            </div>
+            <CardBody className="col-5">
               <CardTitle tag="h5">{activeItem.properties.name}</CardTitle>
               <CardSubtitle className="mb-2 text-muted" tag="h6">
               A planet from Star Wars
@@ -112,7 +116,6 @@ export const DetailCard = (props) => {
                   </tr>
                 </tbody>
               </Table>
-              <Button>Add to Favorites</Button>
             </CardBody>
           </Card>
         </div>
@@ -120,14 +123,16 @@ export const DetailCard = (props) => {
     case "vehicles":
       return (
         <div className="container">
-          <Card className="detailCard">
+          <Card className="detailCard row d-flex">
+            <div className="col-7">
             <CardImg
               alt="Card image cap"
               src="https://picsum.photos/318/180"
               top
               width="100%"
             />
-            <CardBody>
+            </div>
+            <CardBody className="col-5">
               <CardTitle tag="h5">{activeItem.properties.name}</CardTitle>
               <CardSubtitle className="mb-2 text-muted" tag="h6">
                 A vehicle from Star Wars
@@ -168,7 +173,6 @@ export const DetailCard = (props) => {
                   </tr>
                 </tbody>
               </Table>
-              <Button>Add to Favorites</Button>
             </CardBody>
           </Card>
         </div>

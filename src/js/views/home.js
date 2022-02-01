@@ -9,7 +9,7 @@ export const Home = () => {
     actions.getData(), [];
   });
   return (
-    <div className="text-center mt-2 mb-2">
+    <div className="container text-center mt-2 mb-2">
       <h1>Star Wars Enciclopedia</h1>
       <div className="d-flex justify-content-around mt-2 mb-5">
         <HomeCard

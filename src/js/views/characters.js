@@ -17,6 +17,7 @@ export const Characters = () => {
 			name={characters[index].name} 
 			uid={characters[index].uid}
 			type="people"
+			index={index}
 			></ItemCard>)}
 			</div>
 			<Link to="/">
