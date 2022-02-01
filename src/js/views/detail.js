@@ -19,7 +19,7 @@ export const Detail = () => {
   if (fetchRoute.includes("planets")) {
     return (
       <div>
-        <DetailCard type="planets" activeItem={activeItem}></DetailCard>
+        <DetailCard type="planets"></DetailCard>
       </div>
     );
   }

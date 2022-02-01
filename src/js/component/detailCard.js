@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import {
   Card,
@@ -14,7 +14,8 @@ import "../../styles/detailCard.css";
 
 export const DetailCard = (props) => {
   const { store, actions } = useContext(Context);
-  useEffect(()=>{console.log(store.activeItem)})
+  useEffect(()=>{},[])
+  let activeItem = store.activeItem
   switch (props.type) {
     case "people":
       return (
@@ -98,7 +99,7 @@ export const DetailCard = (props) => {
                     <td>{activeItem.properties.population}</td>
                   </tr>
                   <tr>
-                    <th scope="row">Rotation Perdio</th>
+                    <th scope="row">Rotation Period</th>
                     <td>{activeItem.properties.rotation_period}</td>
                   </tr>
                   <tr>
@@ -127,12 +128,47 @@ export const DetailCard = (props) => {
               width="100%"
             />
             <CardBody>
-              <CardTitle tag="h5">Card title</CardTitle>
+              <CardTitle tag="h5">{activeItem.properties.name}</CardTitle>
               <CardSubtitle className="mb-2 text-muted" tag="h6">
                 A vehicle from Star Wars
               </CardSubtitle>
-              <CardText>{props.type}</CardText>
-              <Button>Button</Button>
+              <Table borderless>
+                <tbody>
+                  <tr>
+                    <th scope="row">Cargo Capacity</th>
+                    <td>{activeItem.properties.cargo_capacity}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Consumables</th>
+                    <td>{activeItem.properties.consumables}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cost in Credits</th>
+                    <td>{activeItem.properties.cost_in_credits}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Crew</th>
+                    <td>{activeItem.properties.crew}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Manufacturer</th>
+                    <td>{activeItem.properties.manufacturer}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Max Atmospheric Speed</th>
+                    <td>{activeItem.properties.max_atmosphering_speed}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Model Name</th>
+                    <td>{activeItem.properties.model}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Max Passengers</th>
+                    <td>{activeItem.properties.passengers}</td>
+                  </tr>
+                </tbody>
+              </Table>
+              <Button>Add to Favorites</Button>
             </CardBody>
           </Card>
         </div>
