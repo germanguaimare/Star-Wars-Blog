@@ -8,8 +8,7 @@ export const Characters = () => {
 	const { store, actions } = useContext(Context);
 	const characters = JSON.parse(sessionStorage.getItem('characters'))
 	return (
-		<div className="container-full px-5">
-			<h1>Character View</h1>
+		<div className="container-full px-5 mt-3">
 			<div className="d-flex flex-wrap justify-content-start mb-4">
 			{characters.map((key,index) => 
 			<ItemCard 
@@ -20,9 +19,11 @@ export const Characters = () => {
 			index={index}
 			></ItemCard>)}
 			</div>
+			<div className="text-center mt-4 mb-5">
 			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
+				<button className="btn home-button">Back home</button>
 			</Link>
+			</div>
 		</div>
 	);
 };

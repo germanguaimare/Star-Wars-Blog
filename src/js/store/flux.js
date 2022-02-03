@@ -124,7 +124,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       deleteFavorite: (index) => {
         const store = getStore();
         store.favorites.splice(index,1);
-        console.log(store.favorites)
       }
     },
   };

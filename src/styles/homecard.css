@@ -1,3 +1,50 @@
-.homeCard{
-    width: 26rem;
+.homeCard {
+  width: 27rem;
+  height: 26rem;
+  text-align: center;
+  border-radius: 8px;
+  border: 4px ridge #616161;
+}
+
+#text-area {
+  background: url(https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80)
+    center center no-repeat;
+  background-size: cover;
+}
+
+#img-space {
+  height: 18rem;
+  border-bottom: 2px solid #616161;
+}
+
+#img-space img {
+  object-fit: cover;
+  height: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+#title {
+  font-size: 30px;
+  color: #ffe81f;
+  text-shadow: 2px 2px 2px black;
+}
+
+.exploreButton {
+  font-weight: 600;
+  border: 2px solid #ffe81f;
+  height: 3rem;
+  color: #ffe81f;
+  background-color: black;
+  text-shadow: 2px 2px 2px black;
+}
+
+.exploreButton:hover{
+border: 2px solid black;
+color: black;
+background-color: #ffe81f;
+-webkit-box-shadow: 0px 0px 19px 2px rgba(231, 166, 26, 1);
+-moz-box-shadow: 0px 0px 19px 2px rgba(231, 166, 26, 1);
+box-shadow: 0px 0px 19px 2px rgba(231, 166, 26, 1);
+text-shadow: 2px 2px 2px yellow;
 }

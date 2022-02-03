@@ -9,20 +9,19 @@ import "../../styles/homecard.css";
 
 export const HomeCard = (props) => {
   return (
-    <div>
-      <Card className="homeCard">
-        <CardBody className="py-0">
-        </CardBody>
+      <Card className="homeCard" id={props.color}>
+        <CardBody className="py-0 px-0" id="img-space">
         <img
+          className="img-fluid"
           alt="Card image cap"
-          src="https://picsum.photos/318/180"
+          src={props.img}
           width="100%"
         />
-        <CardBody>
-              <h3>{props.title}</h3>
-          <Link to={props.link}><Button>{props.action}</Button></Link>
+        </CardBody>
+        <CardBody id="text-area">
+              <h3 id="title">{props.title}</h3>
+          <Link to={props.link}><Button className="exploreButton">{props.action}</Button></Link>
         </CardBody>
       </Card>
-    </div>
   );
 };

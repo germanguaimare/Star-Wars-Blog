@@ -8,8 +8,7 @@ export const Vehicles = () => {
 	const { store, actions } = useContext(Context);
 	const vehicles = JSON.parse(sessionStorage.getItem('vehicles'))
 	return (
-		<div className="container-full px-5">
-			<h1>Vehicles View</h1>
+		<div className="container-full px-5 mt-3">
 			<div className="d-flex flex-wrap justify-content-start mb-4">
 			{vehicles.map((key,index) => 
 			<ItemCard 
@@ -20,9 +19,11 @@ export const Vehicles = () => {
 			index={index}
 			></ItemCard>)}
 			</div>
+			<div className="text-center mt-4 mb-5">
 			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
+				<button className="btn home-button">Back home</button>
 			</Link>
+			</div>
 		</div>
 	);
 };

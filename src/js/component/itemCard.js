@@ -3,23 +3,27 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom"
 import {Card, CardImg, CardTitle, CardBody, Button} from "reactstrap"
 import "../../styles/itemCard.css"
+import babyYoda from "../../img/babyYoda.jpeg"
 
 export const ItemCard = (props) => {
   const {store, actions} = useContext(Context)
   return (
     <Card className="itemCard">
       <CardImg
+        className="cardImg"
         alt="Card image cap"
-        src="https://picsum.photos/318/180"
+        src={babyYoda}
         top
         width="100%"
       />
-      <CardBody>
-        <CardTitle tag="h5">{props.name}</CardTitle>
+      <CardBody className="cardBody">
+        <CardTitle tag="h5" className="cardTitle">{props.name}</CardTitle>
+        <div className="d-flex justify-content-between">
         <Link to={`/${props.type}/${props.uid}`}>
-        <Button>Details</Button>
+        <Button className="detailButton">Details</Button>
         </Link>
-        <Button onClick={() => {actions.addFavorite(props.index, props.type, props.type, props.uid)}}>Add to Favorites</Button>
+        <Button className="favoriteButton"onClick={() => {actions.addFavorite(props.index, props.type, props.uid)}}><i class="far fa-heart"></i></Button>
+        </div>
       </CardBody>
     </Card>
   );

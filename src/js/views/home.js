@@ -2,6 +2,10 @@ import React, { useEffect, useContext } from "react";
 import "../../styles/home.css";
 import { HomeCard } from "../component/homeCard";
 import { Context } from "../store/appContext";
+import { CardDeck } from "reactstrap";
+import charactersImg from "../../img/Characters.png";
+import planetsImg from "../../img/planets.jpg";
+import vehiclesImg from "../../img/Vehicles.png";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -9,25 +13,28 @@ export const Home = () => {
     actions.getData(), [];
   });
   return (
-    <div className="container text-center mt-2 mb-2">
-      <h1>Star Wars Enciclopedia</h1>
-      <div className="d-flex justify-content-around mt-2 mb-5">
-        <HomeCard
-          title="Characters"
-          link="/people"
-          action="Explore Characters"
-        ></HomeCard>
-        <HomeCard
-          title="Planets"
-          link="/planets"
-          action="Explore Planets"
-        ></HomeCard>
-        <HomeCard
-          title="Vehicles"
-          link="/vehicles"
-          action="Explore Vehicles"
-        ></HomeCard>
-      </div>
-    </div>
+    <CardDeck className="d-flex justify-content-around mt-5">
+      <HomeCard
+        img={charactersImg}
+        title="Characters"
+        link="/people"
+        action="Explore Characters"
+        color="red"
+      ></HomeCard>
+      <HomeCard
+        img={planetsImg}
+        title="Planets"
+        link="/planets"
+        action="Explore Planets"
+        color="green"
+      ></HomeCard>
+      <HomeCard
+        img={vehiclesImg}
+        title="Vehicles"
+        link="/vehicles"
+        action="Explore Vehicles"
+        color="blue"
+      ></HomeCard>
+    </CardDeck>
   );
 };
